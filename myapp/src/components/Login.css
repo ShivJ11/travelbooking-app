@@ -1,0 +1,64 @@
+.show{
+    background-color: azure;
+    height: fit-content;
+    width: fit-content;
+    position: fixed;
+    z-index: 999;
+    top: 30%;
+    margin-left: 40%;
+    right: 0;
+    left: 0;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .card {
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    border-top: 4px solid  #5162cef1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  input {
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #ccc;
+    color: #333;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .login-button {
+    padding: 10px 20px;
+    background-color:  #5162cef1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .register-button {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }

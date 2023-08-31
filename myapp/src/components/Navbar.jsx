@@ -1,9 +1,10 @@
 import React from "react";
 
-const Navbar = () => {
+
+const Navbar = ({handleLoginClick,handleRegisterClick}) => {
   <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>;
   return (
-    <div>
+    <>
       <nav class="bg-white border-gray-200 py-2.5">
         <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
           <a href="#" class="flex items-center">
@@ -24,12 +25,14 @@ const Navbar = () => {
             <a
               href="#"
               class="text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
+              onClick={()=>handleLoginClick()}
             >
               Log In
             </a>
-             <a
+            <a
               href="#"
               class="text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
+              onClick={()=>handleRegisterClick()}
             >
               Register
             </a>
@@ -124,8 +127,9 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+       
       </nav>
-    </div>
+    </>
   );
 };
 
