@@ -4,13 +4,15 @@ import herobg from "../assets/herobg.jpg";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import Backdrop from "../components/Backdrop";
+import SearchArea from "../components/SearchArea";
 
 const Home = ({isShowLogin,handleLoginClick,isShowRegister,handleRegisterClick}) => {
   return (
     <div>
       <Navbar handleLoginClick={handleLoginClick} handleRegisterClick={handleRegisterClick}></Navbar>
-      <div>
-        <img src={herobg}/>
+      <div class="h-screen bg-cover bg-no-repeat"
+      style={{backgroundImage: "url(" + herobg + ")"}}>
+        <SearchArea></SearchArea>
       </div>
       {isShowLogin && <Login></Login>}
       {isShowRegister && <Register></Register>}
