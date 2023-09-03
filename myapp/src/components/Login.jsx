@@ -4,7 +4,6 @@ import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 
 const Login = ({handleLoginClick}) => {
-  // Create state variables to store email and password
   const {login} = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +11,7 @@ const Login = ({handleLoginClick}) => {
 
   // Event handler for form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
+    e.preventDefault(); 
     try {
       const data = {
         email: email,
@@ -27,7 +26,6 @@ const Login = ({handleLoginClick}) => {
         setLoginError(null);
         login(response.data.token);
         handleLoginClick();
-        // Optionally, you can redirect the user or perform other actions here
       } else {
         // The response didn't contain a token, handle this as an authentication failure
         setLoginError("Authentication failed: Token not received");
