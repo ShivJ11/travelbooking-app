@@ -5,6 +5,7 @@ import { useState } from 'react';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import Hotels from './pages/Hotels';
+import Myrouter from './components/Myrouter';
 const steps = [
   {
     id: "Greet",
@@ -139,7 +140,7 @@ function App() {
   }
   return (
     <div>
-      <Home handleLoginClick={handleLoginClick} isShowLogin={isShowLogin} isShowRegister={isShowRegister} handleRegisterClick={handleRegisterClick}></Home>
+      {/* <Home handleLoginClick={handleLoginClick} isShowLogin={isShowLogin} isShowRegister={isShowRegister} handleRegisterClick={handleRegisterClick}></Home>
       <ThemeProvider theme={theme}>
                 <ChatBot
  
@@ -150,7 +151,8 @@ function App() {
                     {...config}
  
                 />
-            </ThemeProvider>
+            </ThemeProvider> */}
+            <Myrouter></Myrouter>
     </div>
   );
 }

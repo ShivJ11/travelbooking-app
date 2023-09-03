@@ -1,4 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
 
 
 const Navbar = ({handleLoginClick,handleRegisterClick}) => {
@@ -13,9 +15,11 @@ const Navbar = ({handleLoginClick,handleRegisterClick}) => {
               class="h-6 mr-3 sm:h-9"
               alt="Landwind Logo"
             />
+            <NavLink to="/">
             <span class="self-center text-xl font-semibold whitespace-nowrap">
               Travel Confirm
             </span>
+            </NavLink>
           </a>
           <div class="flex items-center lg:order-2">
             <div class="hidden mt-2 mr-4 sm:inline-block">
@@ -29,13 +33,13 @@ const Navbar = ({handleLoginClick,handleRegisterClick}) => {
             >
               Log In
             </a>
-            <a
+            {/* <a
               href="#"
               class="text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
               onClick={()=>handleRegisterClick()}
             >
               Register
-            </a>
+            </a> */}
             <button
               data-collapse-toggle="mobile-menu-2"
               type="button"
@@ -76,60 +80,60 @@ const Navbar = ({handleLoginClick,handleRegisterClick}) => {
           >
             <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
               <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-white bg-blue-600 rounded lg:bg-transparent lg:text-blue-600 lg:p-0"
+                <NavLink
+                  to="/"
+                  className="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
                   aria-current="page"
                 >
                   Home
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
+                <NavLink
+                  to="/packages"
+                  className="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
                 >
                   Packages
-                </a>
+                </NavLink>
               </li><li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
+                <NavLink
+                  to="/hotels"
+                  className="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
                 >
                   Hotels
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
+                <NavLink
+                  to="/flights"
+                  className="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
                 >
                   Flights
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
+                <NavLink
+                  to="/cruises"
+                  className="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
                 >
                   Cruise
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
+                <NavLink
+                  to="/contact"
+                  className="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
                 >
                   Contact
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
+                <NavLink
+                  to="/aboutus"
+                  className="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
                 >
                   About Us
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>

@@ -12,11 +12,10 @@ const Myrouter = () => {
       <BrowserRouter>
         <Navbar></Navbar>
         <Routes>
-          <Route path="/" element={<Home handleLoginClick={handleLoginClick} isShowLogin={isShowLogin} isShowRegister={isShowRegister} handleRegisterClick={handleRegisterClick}></Home>} />
+          <Route path="/" element={<Home></Home>} />
           <Route path="/hotels" element={<Hotels />} />
           <Route path="/packages" element={<Packages />} />
           <Route path="/cruises" element={<Cruises />} />
-
         </Routes>
       </BrowserRouter>
     </div>

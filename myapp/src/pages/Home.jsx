@@ -9,7 +9,7 @@ import SearchArea from "../components/SearchArea";
 const Home = ({isShowLogin,handleLoginClick,isShowRegister,handleRegisterClick}) => {
   return (
     <div>
-      <Navbar handleLoginClick={handleLoginClick} handleRegisterClick={handleRegisterClick}></Navbar>
+      {/* <Navbar handleLoginClick={handleLoginClick} handleRegisterClick={handleRegisterClick}></Navbar> */}
       <div class="h-screen bg-cover bg-no-repeat"
       style={{backgroundImage: "url(" + herobg + ")"}}>
         <SearchArea></SearchArea>
