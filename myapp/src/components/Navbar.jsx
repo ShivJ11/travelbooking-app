@@ -91,6 +91,13 @@ const Navbar = ({handleLoginClick,handleRegisterClick}) => {
                 >
                   Packages
                 </a>
+              </li><li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
+                >
+                  Hotels
+                </a>
               </li>
               <li>
                 <a
