@@ -6,6 +6,7 @@ import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import Hotels from './pages/Hotels';
 import Myrouter from './components/Myrouter';
+
 const steps = [
   {
     id: "Greet",
@@ -126,18 +127,19 @@ const theme = {
 
 // Set some properties of the bot
 const config = {
-  botAvatar: "https://d2cbg94ubxgsnp.cloudfront.net/Pictures/2000xAny/9/9/2/512992_shutterstock_715962319converted_749269.png",
+  botAvatar:
+    "https://d2cbg94ubxgsnp.cloudfront.net/Pictures/2000xAny/9/9/2/512992_shutterstock_715962319converted_749269.png",
   floating: true,
 };
 function App() {
-  const [isShowLogin,setIsShowLogin] = useState(false);
-  const handleLoginClick = ()=>{
-    setIsShowLogin((isShowLogin)=>!isShowLogin);
-  }
-  const [isShowRegister,setIsShowRegister] = useState(false);
-  const handleRegisterClick = ()=>{
-    setIsShowRegister((isShowRegister)=>!isShowRegister);
-  }
+  const [isShowLogin, setIsShowLogin] = useState(false);
+  const handleLoginClick = () => {
+    setIsShowLogin((isShowLogin) => !isShowLogin);
+  };
+  const [isShowRegister, setIsShowRegister] = useState(false);
+  const handleRegisterClick = () => {
+    setIsShowRegister((isShowRegister) => !isShowRegister);
+  };
   return (
     <div>
       {/* <Home handleLoginClick={handleLoginClick} isShowLogin={isShowLogin} isShowRegister={isShowRegister} handleRegisterClick={handleRegisterClick}></Home>

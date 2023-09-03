@@ -1,9 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import { useAuth } from "../context/AuthContext";
 
-
-const Navbar = ({handleLoginClick,handleRegisterClick}) => {
+const Navbar = ({ handleLoginClick, handleRegisterClick }) => {
+  const { user, logout } = useAuth();
   <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>;
   return (
     <>
@@ -25,21 +26,31 @@ const Navbar = ({handleLoginClick,handleRegisterClick}) => {
             <div class="hidden mt-2 mr-4 sm:inline-block">
               <span></span>
             </div>
+            {user ? (
+              <button
+                class="text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
+                onClick={() => logout()}                
+              >
+                Logout
+              </button>
+            ) : (
+              <>
+                <button
+                  class="text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
+                  onClick={() => handleLoginClick()}
+                  style={{ marginRight: "7px" }}
+                >
+                  Log In
+                </button>
+                <button
+                  class="text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
+                  onClick={() => handleRegisterClick()}
+                >
+                  Register
+                </button>
+              </>
+            )}
 
-            <a
-              href="#"
-              class="text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
-              onClick={()=>handleLoginClick()}
-            >
-              Log In
-            </a>
-            {/* <a
-              href="#"
-              class="text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
-              onClick={()=>handleRegisterClick()}
-            >
-              Register
-            </a> */}
             <button
               data-collapse-toggle="mobile-menu-2"
               type="button"
@@ -138,7 +149,6 @@ const Navbar = ({handleLoginClick,handleRegisterClick}) => {
             </ul>
           </div>
         </div>
-       
       </nav>
     </>
   );
