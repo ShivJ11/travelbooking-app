@@ -33,7 +33,7 @@
     margin-bottom: 4%;
   }
 /* Full-width input fields */
-.reg-container > input[type=text], input[type=password] {
+.reg-container > input[type=text],.reg-container > input[type=password] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -85,6 +85,21 @@
 
 .clearfix>button:hover {
   opacity:1;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Style the input fields with errors */
+.reg-container input[type=text].error,
+.reg-container input[type=password].error,
+.reg-container select.error,
+.reg-container input[type=phone].error {
+  border: 1px solid red;
+  background-color: #ffe0e0; /* Light red background for input fields with errors */
 }
 
 
