@@ -27,8 +27,8 @@ const Navbar = () => {
               alt="Landwind Logo"
             />
             <NavLink to="/">
-              <span class="self-center text-xl font-semibold whitespace-nowrap">
-                Travel Confirm
+              <span class="self-center text-xl whitespace-nowrap" style={{fontWeight: "900", fontSize: "1.5rem", color: "#0d4da4"}}>
+                Thomas<span style={{color: "#eed300"}}>Cook</span>
               </span>
             </NavLink>
           </a>
@@ -37,24 +37,28 @@ const Navbar = () => {
               <span></span>
             </div>
             {user ? (
+              <>
               <button
                 class="text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
                 onClick={() => logout()}
+                style={{fontWeight: "700"}}
               >
                 Logout
               </button>
+              </>
             ) : (
               <>
                 <button
                   class="text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
                   onClick={() => handleLoginClick()}
-                  style={{ marginRight: "7px" }}
+                  style={{ marginRight: "7px", fontWeight: "700" }}
                 >
                   Log In
                 </button>
                 <button
                   class="text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
                   onClick={() => handleRegisterClick()}
+                  style={{fontWeight: "700"}}
                 >
                   Register
                 </button>
@@ -103,6 +107,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/"
+                  style={{fontWeight: "700"}}
                   className="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
                   aria-current="page"
                 >
@@ -112,6 +117,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/packages"
+                  style={{fontWeight: "700"}}
                   className="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
                 >
                   Packages
@@ -120,6 +126,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/hotels"
+                  style={{fontWeight: "700"}}
                   className="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
                 >
                   Hotels
@@ -128,6 +135,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/flights"
+                  style={{fontWeight: "700"}}
                   className="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
                 >
                   Flights
@@ -136,6 +144,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/cruises"
+                  style={{fontWeight: "700"}}
                   className="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
                 >
                   Cruise
@@ -144,6 +153,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/contact"
+                  style={{fontWeight: "700"}}
                   className="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
                 >
                   Contact
@@ -152,6 +162,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/aboutus"
+                  style={{fontWeight: "700"}}
                   className="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
                 >
                   About Us
@@ -161,7 +172,7 @@ const Navbar = () => {
           </div>
         </div>
         {isShowLogin && <Login handleLoginClick={handleLoginClick}></Login>}
-        {isShowRegister && <Register></Register>}
+        {isShowRegister && <Register handleRegisterClick={handleRegisterClick}></Register>}
         {isShowLogin && <Backdrop showModal={handleLoginClick}></Backdrop>}
         {isShowRegister && (
           <Backdrop showModal={handleRegisterClick}></Backdrop>

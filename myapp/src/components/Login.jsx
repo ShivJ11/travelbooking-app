@@ -2,22 +2,38 @@ import React, { useState } from "react";
 import "./Login.css";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup"; // Import yupResolver
+import * as yup from "yup";
+import { FaSpinner } from "react-icons/fa";
 
-const Login = ({handleLoginClick}) => {
-  const {login} = useAuth();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const validationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Invalid email")
+    .required("Email is required"),
+  password: yup.string().required("Password is required"),
+});
+
+const Login = ({ handleLoginClick }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationSchema), // Use yupResolver
+  });
+
+  const { login } = useAuth();
   const [loginError, setLoginError] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Event handler for form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault(); 
+  const onSubmit = async (data) => {
     try {
-      const data = {
-        email: email,
-        password: password,
-      };
-      const response = await await axios.post(
+      setLoginError(null);
+      setIsSubmitting(true);
+      const response = await axios.post(
         "http://localhost:5147/api/Auth/Login",
         data
       );
@@ -47,12 +63,14 @@ const Login = ({handleLoginClick}) => {
         // Something else went wrong
         setLoginError("An error occurred: " + error.message);
       }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
     <div className="register-container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="reg-container">
           <h1>Login to ThomasCook</h1>
 
@@ -61,25 +79,34 @@ const Login = ({handleLoginClick}) => {
           </label>
           <input
             type="text"
-            placeholder="Enter Email"
+            placeholder={
+              errors.email ? "Please enter a valid email" : "Enter Email"
+            }
             name="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            {...register("email")}
+            className={errors.email ? "error" : ""}
           />
 
-          <label htmlFor="psw">
+          <label htmlFor="password">
             <b>Password</b>
           </label>
           <input
             type="password"
-            placeholder="Enter Password"
-            name="psw"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            placeholder={
+              errors.password
+                ? "Please enter a valid password"
+                : "Enter Password"
+            }
+            name="password"
+            {...register("password")}
+            className={errors.password ? "error" : ""}
           />
-
+          {isSubmitting && (
+            <div className="spinner">
+              {/* Use the FaSpinner component from react-icons */}
+              <FaSpinner className="spinner-icon" />
+            </div>
+          )}
           <div className="error-message">
             {loginError && <p className="error-text">{loginError}</p>}
           </div>

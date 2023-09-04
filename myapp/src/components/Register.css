@@ -24,7 +24,7 @@
   box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
   }
   .reg-container>h1{
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
     font-size:x-large;
     font-weight: bolder;
     display: flex;
@@ -40,7 +40,7 @@
   display: inline-block;
   border: none;
   background: #f7f7f7;
-	font-family: Montserrat,Arial, Helvetica, sans-serif;
+	/* font-family: Montserrat,Arial, Helvetica, sans-serif; */
 }
 .reg-container>select {
   width: 18%;
@@ -49,7 +49,7 @@
   display: inline-block;
   border: none;
   background: #f7f7f7;
-	font-family: Montserrat,Arial, Helvetica, sans-serif;
+	/* font-family: Montserrat,Arial, Helvetica, sans-serif; */
 }
 
 .reg-container > input[type=phone] {
@@ -79,7 +79,7 @@
   width: 100%;
   opacity: 0.9;
 	font-size:16px;
-	font-family: Montserrat,Arial, Helvetica, sans-serif;
+	/* font-family: Montserrat,Arial, Helvetica, sans-serif; */
 	border-radius:10px;
 }
 
