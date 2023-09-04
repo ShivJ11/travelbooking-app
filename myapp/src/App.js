@@ -130,14 +130,7 @@ const config = {
   floating: true,
 };
 function App() {
-  const [isShowLogin,setIsShowLogin] = useState(false);
-  const handleLoginClick = ()=>{
-    setIsShowLogin((isShowLogin)=>!isShowLogin);
-  }
-  const [isShowRegister,setIsShowRegister] = useState(false);
-  const handleRegisterClick = ()=>{
-    setIsShowRegister((isShowRegister)=>!isShowRegister);
-  }
+  
   return (
     <div>
       {/* <Home handleLoginClick={handleLoginClick} isShowLogin={isShowLogin} isShowRegister={isShowRegister} handleRegisterClick={handleRegisterClick}></Home>
@@ -152,6 +145,17 @@ function App() {
  
                 />
             </ThemeProvider> */}
+            <ThemeProvider theme={theme}>
+                <ChatBot
+ 
+                    // This appears as the header
+                    // text for the chat bot
+                    headerTitle="ThomasBot"
+                    steps={steps}
+                    {...config}
+ 
+                />
+            </ThemeProvider>
             <Myrouter></Myrouter>
     </div>
   );

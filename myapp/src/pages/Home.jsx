@@ -14,10 +14,7 @@ const Home = ({isShowLogin,handleLoginClick,isShowRegister,handleRegisterClick})
       style={{backgroundImage: "url(" + herobg + ")"}}>
         <SearchArea></SearchArea>
       </div>
-      {isShowLogin && <Login></Login>}
-      {isShowRegister && <Register></Register>}
-      {isShowLogin && <Backdrop showModal = {handleLoginClick}></Backdrop>}
-      {isShowRegister && <Backdrop showModal = {handleRegisterClick}></Backdrop>}
+     
     </div>
   );
 };
