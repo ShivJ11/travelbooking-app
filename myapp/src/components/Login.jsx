@@ -31,6 +31,7 @@ const Login = ({ handleLoginClick }) => {
   // Event handler for form submission
   const onSubmit = async (data) => {
     try {
+      setLoginError(null);
       setIsSubmitting(true);
       const response = await axios.post(
         "http://localhost:5147/api/Auth/Login",

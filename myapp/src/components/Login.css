@@ -83,7 +83,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center; /* Adjust the margin-top to provide spacing between the spinner and other elements */
-  margin-bottom: 10px;
+  margin-bottom: 7px;
 }
 
 .spinner-icon {

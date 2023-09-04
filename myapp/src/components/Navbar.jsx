@@ -27,8 +27,8 @@ const Navbar = () => {
               alt="Landwind Logo"
             />
             <NavLink to="/">
-              <span class="self-center text-xl whitespace-nowrap" style={{fontWeight: "900"}}>
-                Travel Confirm
+              <span class="self-center text-xl whitespace-nowrap" style={{fontWeight: "900", fontSize: "1.5rem", color: "#0d4da4"}}>
+                Thomas<span style={{color: "#eed300"}}>Cook</span>
               </span>
             </NavLink>
           </a>
@@ -37,6 +37,7 @@ const Navbar = () => {
               <span></span>
             </div>
             {user ? (
+              <>
               <button
                 class="text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
                 onClick={() => logout()}
@@ -44,6 +45,7 @@ const Navbar = () => {
               >
                 Logout
               </button>
+              </>
             ) : (
               <>
                 <button
@@ -170,7 +172,7 @@ const Navbar = () => {
           </div>
         </div>
         {isShowLogin && <Login handleLoginClick={handleLoginClick}></Login>}
-        {isShowRegister && <Register></Register>}
+        {isShowRegister && <Register handleRegisterClick={handleRegisterClick}></Register>}
         {isShowLogin && <Backdrop showModal={handleLoginClick}></Backdrop>}
         {isShowRegister && (
           <Backdrop showModal={handleRegisterClick}></Backdrop>
