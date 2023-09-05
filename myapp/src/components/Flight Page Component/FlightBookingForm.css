@@ -35,4 +35,27 @@
     align-items: center;
     justify-content: space-around;
   }
- 
+  .flight-input-form>div{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+  }
+  .flight-input-form>div>i{
+    border: 1px solid grey;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .flight-input-form>div>input{
+    width: 80%;
+  }
+ .flight-accordian{
+  height: 25%;
+  width: 20%;
+  background-color: white;
+  position: absolute;
+  margin-top: 17.7%;
+  margin-left: 4.4%;
+  border: 1px solid grey;
+ }
