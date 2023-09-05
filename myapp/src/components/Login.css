@@ -78,3 +78,26 @@ form {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for emphasis */
 }
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Adjust the margin-top to provide spacing between the spinner and other elements */
+  margin-bottom: 7px;
+}
+
+.spinner-icon {
+  color: #5162cef1;
+  font-size: 24px; /* Adjust the size of the spinner icon */
+  margin-right: 5px; /* Add some spacing between the icon and the "Logging In..." text */
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

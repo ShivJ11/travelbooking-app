@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup"; // Import yupResolver
 import * as yup from "yup";
 import "./Register.css";
+import axios from "axios";
+import { FaSpinner } from "react-icons/fa";
+import { toast } from 'react-toastify';
+
 
 const validationSchema = yup.object().shape({
   username: yup.string().required("Username is required"),
@@ -14,14 +18,13 @@ const validationSchema = yup.object().shape({
     .string()
     .min(6, "Password must be at least 6 characters")
     .required("Password is required"),
-  phoneCode: yup.string().required("Phone code is required"),
   phone: yup
     .string()
     .matches(/^[0-9]+$/, "Phone must be numeric")
     .required("Phone is required"),
 });
 
-const Register = () => {
+const Register = ({handleRegisterClick}) => {
   const {
     register,
     handleSubmit,
@@ -29,11 +32,30 @@ const Register = () => {
   } = useForm({
     resolver: yupResolver(validationSchema), // Use yupResolver
   });
+  const [error, setError] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const onSubmit = (data) => {
-    // Here, you can access the form data in the `data` object with validations applied
-    console.log("Form Data:", data);
-    // You can send the data to an API using axios or fetch here
+  const onSubmit = async (data) => {
+    try {
+      // Here, you can access the form data in the `data` object with validations applied
+      setIsSubmitting(true);
+      setError(null); // Clear any previous errors
+      const response = await axios.post(
+        "http://localhost:5147/api/Auth/Register",
+        data
+      );
+      // Handle successful registration here, e.g., show a success message
+      handleRegisterClick();
+      toast.success("Registration Successful!");
+      console.log(response);
+    } catch (error) {
+      // Handle errors that might occur during registration
+      console.error("Registration failed:", error);
+      setError("Registration failed. Please try again."); // Set the error message
+    } finally {
+      setIsSubmitting(false);
+    }
+
   };
 
   return (
@@ -87,7 +109,7 @@ const Register = () => {
             <b>Phone Number</b>
           </label>
           <br />
-          <select
+          {/* <select
             name="phoneCode"
             {...register("phoneCode")}
             className={errors.phoneCode ? "error" : ""}
@@ -98,20 +120,30 @@ const Register = () => {
             <option value="+91">+91 (India)</option>
             <option value="+86">+86 (China)</option>
             <option value="+81">+81 (Japan)</option>
-            {/* Add more valid phone codes as needed */}
-          </select>
+          </select> */}
 
           <input
             type="text"
             name="phone"
             placeholder={
-              errors.phone ? "Please enter a valid phone number" : "Enter Phone Number"
+              errors.phone
+                ? "Please enter a valid phone number"
+                : "Enter Phone Number"
             }
             {...register("phone")}
             className={errors.phone ? "error" : ""}
           />
+          {isSubmitting && (
+            <div className="spinner">
+              {/* Use the FaSpinner component from react-icons */}
+              <FaSpinner className="spinner-icon" />
+            </div>
+          )}
+          <div className="error-message">
+            {error && <p className="error-text">{error}</p>}
+          </div>
 
-          <p>
+          <p style={{ textAlign: "center" }}>
             By creating an account you agree to our{" "}
             <a href="#" style={{ color: "dodgerblue" }}>
               Terms & Privacy

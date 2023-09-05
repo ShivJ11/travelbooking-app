@@ -4,8 +4,10 @@ import Home from './pages/Home';
 import { useState } from 'react';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
-import Hotels from './pages/Hotels';
+import Hotels from './pages/Hotel/Hotels';
 import Myrouter from './components/Myrouter';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const steps = [
   {
@@ -159,6 +161,7 @@ function App() {
                 />
             </ThemeProvider>
             <Myrouter></Myrouter>
+            <ToastContainer />
     </div>
   );
 }

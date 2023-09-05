@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Hotels = () => {
   return (
@@ -23,19 +24,19 @@ const Hotels = () => {
       <div className="flex p-6">
 
         <div class="w-full m-3 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <a href="#">
+          <NavLink to="./details">
             <img
               class="p-8 rounded-t-lg"
-              src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/watch-card-50-compare-202209_GEO_IN?wid=960&hei=1000&fmt=p-jpg&qlt=95&.v=1661809624704"
+              src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80"
               alt="product image"
             />
-          </a>
+          </NavLink>
           <div class="px-5 pb-5">
-            <a href="#">
+          <NavLink to="./details">
               <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                 Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
               </h5>
-            </a>
+            </NavLink>
             <div class="flex items-center mt-2.5 mb-5">
               <svg
                 class="w-4 h-4 text-yellow-300 mr-1"
@@ -101,19 +102,19 @@ const Hotels = () => {
         </div>
 
         <div class="w-full m-3 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <a href="#">
+        <NavLink to="./details">
             <img
               class="p-8 rounded-t-lg"
-              src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/watch-card-50-compare-202209_GEO_IN?wid=960&hei=1000&fmt=p-jpg&qlt=95&.v=1661809624704"
+              src="https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80"
               alt="product image"
             />
-          </a>
+          </NavLink>
           <div class="px-5 pb-5">
-            <a href="#">
+          <NavLink to="./details">
               <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                 Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
               </h5>
-            </a>
+            </NavLink>
             <div class="flex items-center mt-2.5 mb-5">
               <svg
                 class="w-4 h-4 text-yellow-300 mr-1"
@@ -179,19 +180,19 @@ const Hotels = () => {
         </div>
 
         <div class="w-full m-3 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <a href="#">
+        <NavLink to="./details">
             <img
               class="p-8 rounded-t-lg"
-              src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/watch-card-50-compare-202209_GEO_IN?wid=960&hei=1000&fmt=p-jpg&qlt=95&.v=1661809624704"
+              src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3548&q=80"
               alt="product image"
             />
-          </a>
+          </NavLink>
           <div class="px-5 pb-5">
-            <a href="#">
+          <NavLink to="./details">
               <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                 Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
               </h5>
-            </a>
+            </NavLink>
             <div class="flex items-center mt-2.5 mb-5">
               <svg
                 class="w-4 h-4 text-yellow-300 mr-1"
@@ -257,19 +258,19 @@ const Hotels = () => {
         </div>
 
         <div class="w-full m-3 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <a href="#">
+        <NavLink to="./details">
             <img
               class="p-8 rounded-t-lg"
-              src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/watch-card-50-compare-202209_GEO_IN?wid=960&hei=1000&fmt=p-jpg&qlt=95&.v=1661809624704"
+              src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80"
               alt="product image"
             />
-          </a>
+          </NavLink>
           <div class="px-5 pb-5">
-            <a href="#">
+          <NavLink to="./details">
               <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                 Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
               </h5>
-            </a>
+            </NavLink>
             <div class="flex items-center mt-2.5 mb-5">
               <svg
                 class="w-4 h-4 text-yellow-300 mr-1"
