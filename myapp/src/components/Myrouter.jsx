@@ -7,6 +7,7 @@ import Packages from "../pages/Packages";
 import Cruises from "../pages/Cruises";
 import Flights from "../pages/Flights";
 import HotelDetails from "../pages/Hotel/HotelDetails";
+import FlightSearch from "../pages/FlightSearch";
 
 const Myrouter = () => {
   return (
@@ -19,6 +20,7 @@ const Myrouter = () => {
           <Route path="/packages" element={<Packages />} />
           <Route path="/cruises" element={<Cruises />} />
           <Route path="/flights" element={<Flights/>} />
+          <Route path="/flights/search" element={<FlightSearch/>}/>
           <Route path="/hotels/details" element={<HotelDetails />} />
         </Routes>
       </BrowserRouter>
