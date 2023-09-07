@@ -1,12 +1,13 @@
-import React from 'react'
-import Header from '../components/Flight Page Component/Header'
+import React from "react";
+import Header from "../components/Flight Page Component/Header";
+import { motion } from "framer-motion";
 
 const Flights = () => {
   return (
-    <div>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <Header></Header>
-    </div>
-  )
-}
+    </motion.div>
+  );
+};
 
-export default Flights
+export default Flights;

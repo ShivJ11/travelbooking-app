@@ -1,6 +1,5 @@
 .flight-form-container{
     font-family: 'Montserrat', sans-serif;
-    height: 75%;
     width: 25%;
     background-color: white;
     margin-right: 10%;
@@ -14,7 +13,7 @@
    margin-bottom: 3%;
   }
   .flight-form>div>h1>span{
-    color: yellow;
+    color: #e9d226;
   }
   .flight-form>div:nth-child(2){
     background-color: black;
@@ -53,9 +52,55 @@
  .flight-accordian{
   height: 25%;
   width: 20%;
-  background-color: white;
   position: absolute;
   margin-top: 17.7%;
   margin-left: 4.4%;
-  border: 1px solid grey;
+  background-color: #fff;
+  border: 1px solid #ccc;
  }
+
+ .flight-input input[type="radio"] {
+  width: 20px;
+  height: 20px;
+}
+
+.flight-input-form div {
+  margin: 10px 0;
+  padding: 5px;
+}
+
+/* In your CSS file */
+.flight-submit-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  /* Add other styles as needed */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Add hover and click transition */
+}
+
+/* Add hover style */
+.flight-submit-btn:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+/* Add active (click) style */
+.flight-submit-btn:active {
+  transform: scale(1.2); /* Scale down slightly when clicked */
+}
+
+.flight-input-form input[type="text"],
+.flight-input-form input[type="date"],
+.flight-input-form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  /* Add other styles as needed */
+}
+
+.depart-arrival {
+  border: 1px solid #ccc;
+  width: 100%;
+}
