@@ -152,7 +152,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to="/contact"
+                  to="/contactus"
                   style={{fontWeight: "700"}}
                   className="block py-2 pl-3 pr-4 text-gray-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0"
                 >

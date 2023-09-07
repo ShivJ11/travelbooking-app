@@ -11,6 +11,8 @@ import Login from "./Login";
 import Register from "./Register";
 import Backdrop from "./Backdrop";
 import HotelDetails from "../pages/Hotel/HotelDetails";
+import Contact from "../pages/Contact";
+import About from "../pages/About";
 
 const Myrouter = () => {
   const [isShowLogin,setIsShowLogin] = useState(false);
@@ -32,6 +34,8 @@ const Myrouter = () => {
           <Route path="/cruises" element={<Cruises />} />
           <Route path="/flights" element={<Flights/>} />
           <Route path="/hotels/details" element={<HotelDetails />} />
+          <Route path="/contactus" element={<Contact/>} />
+          <Route path="/aboutus" element={<About/>} />
         </Routes>
         {isShowLogin && <Login></Login>}
       {isShowRegister && <Register></Register>}
