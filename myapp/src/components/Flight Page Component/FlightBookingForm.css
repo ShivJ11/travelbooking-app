@@ -4,7 +4,7 @@
 }
 .flight-form-container {
   font-family: "Montserrat", sans-serif;
-  height: 75%;
+  height: fit-content;
   width: 25%;
   background-color: white;
   margin-right: 10%;
@@ -67,6 +67,7 @@
 .flight-input-form > button {
   margin-left: 15%;
   margin-top: 4%;
+  margin-bottom: 5%;
   width: 70%;
   appearance: none;
   background: transparent;
