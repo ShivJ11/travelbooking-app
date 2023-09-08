@@ -6,7 +6,7 @@ const cities = ["City 1", "City 2", "City 3"];
 
 function SearchForm() {
   return (
-    <Card variant="outlined" sx={{ p: 3, borderRadius: 2, mb: 4 }}>
+    <Card variant="outlined" sx={{ p: 3, mb: 4, borderRadius: 0 }} >
       <form action="" className="horizontal-flight-input-form">
         <div class="radio">
           <div className="horizontal-flight-input">
