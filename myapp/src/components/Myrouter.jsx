@@ -8,6 +8,7 @@ import Cruises from "../pages/Cruises";
 import Flights from "../pages/Flights";
 import HotelDetails from "../pages/Hotel/HotelDetails";
 import FlightSearch from "../pages/FlightSearch";
+import Error from "../pages/Error";
 
 const Myrouter = () => {
   return (
@@ -22,6 +23,7 @@ const Myrouter = () => {
           <Route path="/flights" element={<Flights/>} />
           <Route path="/flights/search" element={<FlightSearch/>}/>
           <Route path="/hotels/details" element={<HotelDetails />} />
+          <Route path="*" element={<Error/>}/>
         </Routes>
       </BrowserRouter>
     </div>
