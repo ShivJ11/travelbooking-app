@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import Backdrop from "../components/Backdrop";
 import { useAuth } from "../context/AuthContext";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
-  const { user, logout } = useAuth();
-  const [isShowLogin, setIsShowLogin] = useState(false);
+  const { user, logout, isShowLogin, isShowRegister, toggleLogin, toggleRegister } = useAuth();
+  
   const handleLoginClick = () => {
-    setIsShowLogin((isShowLogin) => !isShowLogin);
+    toggleLogin();
   };
-  const [isShowRegister, setIsShowRegister] = useState(false);
+  
   const handleRegisterClick = () => {
-    setIsShowRegister((isShowRegister) => !isShowRegister);
+    toggleRegister();
   };
   <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>;
   return (
@@ -171,11 +172,11 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        {isShowLogin && <Login handleLoginClick={handleLoginClick}></Login>}
-        {isShowRegister && <Register handleRegisterClick={handleRegisterClick}></Register>}
-        {isShowLogin && <Backdrop showModal={handleLoginClick}></Backdrop>}
+        {isShowLogin && <Login></Login>}
+        {isShowRegister && <Register></Register>}
+        {isShowLogin && <Backdrop showModal={toggleLogin}></Backdrop>}
         {isShowRegister && (
-          <Backdrop showModal={handleRegisterClick}></Backdrop>
+          <Backdrop showModal={toggleRegister}></Backdrop>
         )}
       </nav>
     </>

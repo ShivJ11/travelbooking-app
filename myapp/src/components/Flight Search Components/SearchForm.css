@@ -1,0 +1,74 @@
+.radio {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.horizontal-flight-input {
+    display: flex;
+    gap: 20px
+}
+.horizontal-flight-input>div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.main-form-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.horizontal-flight-input-form-div {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+.input-icon {
+  border: 1px solid grey;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.horizontal-flight-input input[type="radio"] {
+  width: 20px;
+  height: 20px;
+}
+
+/* In your CSS file */
+.horizontal-flight-submit-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  /* Add other styles as needed */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Add hover and click transition */
+}
+
+/* Add hover style */
+.horizontal-flight-submit-btn:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+/* Add active (click) style */
+.horizontal-flight-submit-btn:active {
+  transform: scale(1.2); /* Scale down slightly when clicked */
+}
+
+.horizontal-flight-input-form input[type="text"],
+.horizontal-flight-input-form input[type="date"],
+.horizontal-flight-input-form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  /* Add other styles as needed */
+}
+
+.horizontal-depart-arrival {
+  border: 1px solid #ccc;
+  width: 100%;
+}
