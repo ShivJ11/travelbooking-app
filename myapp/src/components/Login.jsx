@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup"; // Import yupResolver
 import * as yup from "yup";
 import { FaSpinner } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const validationSchema = yup.object().shape({
   email: yup
@@ -15,7 +16,7 @@ const validationSchema = yup.object().shape({
   password: yup.string().required("Password is required"),
 });
 
-const Login = ({ handleLoginClick }) => {
+const Login = () => {
   const {
     register,
     handleSubmit,
@@ -24,7 +25,7 @@ const Login = ({ handleLoginClick }) => {
     resolver: yupResolver(validationSchema), // Use yupResolver
   });
 
-  const { login } = useAuth();
+  const { login, toggleLogin } = useAuth();
   const [loginError, setLoginError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -41,7 +42,7 @@ const Login = ({ handleLoginClick }) => {
         // Authentication was successful, clear the login error and store the token
         setLoginError(null);
         login(response.data.token);
-        handleLoginClick();
+        toggleLogin();
       } else {
         // The response didn't contain a token, handle this as an authentication failure
         setLoginError("Authentication failed: Token not received");
@@ -69,7 +70,7 @@ const Login = ({ handleLoginClick }) => {
   };
 
   return (
-    <div className="register-container">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="register-container">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="reg-container">
           <h1>Login to ThomasCook</h1>
@@ -118,7 +119,7 @@ const Login = ({ handleLoginClick }) => {
           </div>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

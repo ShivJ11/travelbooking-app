@@ -6,6 +6,8 @@ import "./Register.css";
 import axios from "axios";
 import { FaSpinner } from "react-icons/fa";
 import { toast } from 'react-toastify';
+import { useAuth } from "../context/AuthContext";
+import { motion } from "framer-motion";
 
 
 const validationSchema = yup.object().shape({
@@ -24,7 +26,8 @@ const validationSchema = yup.object().shape({
     .required("Phone is required"),
 });
 
-const Register = ({handleRegisterClick}) => {
+const Register = () => {
+  const { toggleRegister } = useAuth();
   const {
     register,
     handleSubmit,
@@ -45,7 +48,7 @@ const Register = ({handleRegisterClick}) => {
         data
       );
       // Handle successful registration here, e.g., show a success message
-      handleRegisterClick();
+      toggleRegister();
       toast.success("Registration Successful!");
       console.log(response);
     } catch (error) {
@@ -59,7 +62,7 @@ const Register = ({handleRegisterClick}) => {
   };
 
   return (
-    <div className="register-container">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="register-container">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="reg-container">
           <h1>Register to ThomasCook</h1>
@@ -158,7 +161,7 @@ const Register = ({handleRegisterClick}) => {
           </div>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };
 
