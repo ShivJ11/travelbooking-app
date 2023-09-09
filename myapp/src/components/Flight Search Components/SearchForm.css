@@ -21,7 +21,6 @@
 
 .horizontal-flight-input-form-div {
   display: flex;
-  justify-content: center;
   flex: 1;
 }
 .input-icon {

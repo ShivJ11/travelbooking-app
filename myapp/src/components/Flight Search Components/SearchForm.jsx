@@ -28,7 +28,7 @@ function SearchForm() {
         <div class="main-form-flex">
           <div className="horizontal-flight-input-form-div">
             <i className="fa fa-plane input-icon" aria-hidden="true"></i>
-            <select className="depart-arrival">
+            <select className="horizontal-depart-arrival">
               <option key="default" value="" disabled selected>
                 --Departure--
               </option>
