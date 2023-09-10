@@ -1,8 +1,9 @@
 import { Box, Card, Grid, Typography, Button } from "@mui/material";
 import airIndia from "../../assets/airindia.png";
 import React from "react";
+import { citiesCodeMap } from "../../static/citiesList";
 
-function SearchResult() {
+function SearchResult({data}) {
   return (
     <Card variant="outlined" sx={{ p: 3, borderRadius: 2, mb: 2 }}>
       <Grid container>
@@ -21,11 +22,11 @@ function SearchResult() {
               style={{ width: "50px", display: "inline", marginRight: "10px" }}
               alt=""
             />
-            <Typography variant="caption">SpiceJet SG393</Typography>
+            <Typography variant="caption">{data?.flight_name} SG393</Typography>
           </Box>
           <Box>
             <Typography variant="h6">22:00</Typography>
-            <Typography variant="body2">DEL</Typography>
+            <Typography variant="body2">{citiesCodeMap[data?.departure_city]}</Typography>
           </Box>
           <Box>
             <Typography variant="h6">Non Stop</Typography>
@@ -33,7 +34,7 @@ function SearchResult() {
           </Box>
           <Box>
             <Typography variant="h6">00:10</Typography>
-            <Typography variant="body2">BLR</Typography>
+            <Typography variant="body2">{citiesCodeMap[data?.arrival_city]}</Typography>
           </Box>
         </Grid>
         <Grid
@@ -46,7 +47,7 @@ function SearchResult() {
           }}
         >
           <Box sx={{mr: 2}}>
-            <Typography variant="h6">$ 4609</Typography>
+            <Typography variant="h6">₹ {data?.cost}</Typography>
           </Box>
           <Box>
             <Button variant="contained">Book</Button>
