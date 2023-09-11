@@ -14,7 +14,7 @@ const CruiseHeader = () => {
             <span>ThomasCook</span> is a versitile webiste empowring you
           </p>
           <p>
-            full service airline offering <span>reduced fare</span>{" "}
+            full service cruise offering <span>reduced fare</span>{" "}
           </p>
         </div>
         <div className="flight-form-container">
