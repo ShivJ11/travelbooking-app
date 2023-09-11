@@ -50,14 +50,14 @@ const Navbar = () => {
             ) : (
               <>
                 <button
-                  class="text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
+                  class="text-white bg-blue-600 hover:bg-blue-800 transition duration-300 ease-in-out focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
                   onClick={() => handleLoginClick()}
                   style={{ marginRight: "7px", fontWeight: "700" }}
                 >
                   Log In
                 </button>
                 <button
-                  class="text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
+                  class="text-white bg-blue-600 hover:bg-blue-800 transition duration-300 ease-in-out focus:ring-4 focus:ring-black-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0"
                   onClick={() => handleRegisterClick()}
                   style={{fontWeight: "700"}}
                 >
