@@ -11,6 +11,8 @@ import Contact from "../pages/Contact";
 import About from "../pages/About";
 import FlightSearch from "../pages/FlightSearch";
 import Error from "../pages/Error";
+import Footer from "./footer/Footer";
+import MailList from "./mailList/MailList";
 
 const Myrouter = () => {
   return (
@@ -29,6 +31,8 @@ const Myrouter = () => {
           <Route path="/aboutus" element={<About/>} />
           <Route path="*" element={<Error/>}/>
         </Routes>
+        <MailList></MailList>
+        <Footer></Footer>
       </BrowserRouter>
     </div>
   );
