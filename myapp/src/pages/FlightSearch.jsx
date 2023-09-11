@@ -13,7 +13,7 @@ function FlightSearch() {
         <SearchHeader />
         <SearchForm setFlights={setFlights} />
         {flights.length !== 0 ? (
-          flights.map((data) => <SearchResult data={data} />)
+          flights.map((data, index) => <SearchResult key={index} data={data} />)
         ) : (
           <h6 style={{ textAlign: "center", fontFamily: "Roboto", fontWeight: "700" }}>No flights on the given date.</h6>
         )}

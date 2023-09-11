@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SearchForm.css"; // Updated CSS file name
 import { Card } from "@mui/material";
 import { citiesList } from "../../static/citiesList";
@@ -6,9 +6,14 @@ import axios from "axios";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import IconButton from "@mui/material/IconButton";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+import { AnimatePresence, motion } from "framer-motion";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const schema = yup.object().shape({
-  tripType: yup.string().required(),
+  tripType: yup.string().required("Please select the type of the trip."),
   departureCity: yup
     .string()
     .notOneOf(
@@ -24,10 +29,6 @@ const schema = yup.object().shape({
     )
     .required(),
   departDate: yup.string().required(),
-  numberOfTravelers: yup
-    .number()
-    .positive()
-    .required(),
 });
 
 function SearchForm({ setFlights }) {
@@ -38,6 +39,54 @@ function SearchForm({ setFlights }) {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  const [showTravellers, setShowTravellers] = useState(false);
+  const [adults, setAdults] = useState(0);
+  const [kids, setKids] = useState(0);
+  const [infants, setInfants] = useState(0);
+
+  const toggleTravellers = () => {
+    setShowTravellers(!showTravellers);
+  };
+
+  const handleIncrement = (counterType) => {
+    switch (counterType) {
+      case "adults":
+        setAdults(adults + 1);
+        break;
+      case "kids":
+        setKids(kids + 1);
+        break;
+      case "infants":
+        setInfants(infants + 1);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleDecrement = (counterType) => {
+    switch (counterType) {
+      case "adults":
+        setAdults(adults > 0 ? adults - 1 : adults);
+        break;
+      case "kids":
+        setKids(kids > 0 ? kids - 1 : kids);
+        break;
+      case "infants":
+        setInfants(infants > 0 ? infants - 1 : infants);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const isSubmitDisabled =
+    errors.tripType ||
+    errors.arrivalCity ||
+    errors.departDate ||
+    errors.departureCity ||
+    (adults === 0 && kids === 0 && infants === 0);
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -51,6 +100,7 @@ function SearchForm({ setFlights }) {
     const apiUrl = `http://localhost:5147/api/PublicData/filteredFlightDetails?booking_type=${bookingType}&departure_city=${departureCity}&arrival_city=${arrivalCity}&date=${date}`;
     try {
       const result = await axios.get(apiUrl);
+      console.log(result);
       setFlights(result.data);
     } catch (ex) {
       console.log(ex);
@@ -88,7 +138,11 @@ function SearchForm({ setFlights }) {
           </div>
         </div>
         <div className="main-form-flex">
-          <div className="horizontal-flight-input-form-div">
+          <div
+            className={`horizontal-flight-input-form-div ${
+              errors.departureCity ? "error-input" : ""
+            }`}
+          >
             <i className="fa fa-plane input-icon" aria-hidden="true"></i>
             <select
               className="horizontal-depart-arrival"
@@ -103,13 +157,12 @@ function SearchForm({ setFlights }) {
                 </option>
               ))}
             </select>
-            {errors.departureCity && (
-              <span className="error-message">
-                {errors.departureCity.message}
-              </span>
-            )}
           </div>
-          <div className="horizontal-flight-input-form-div">
+          <div
+            className={`horizontal-flight-input-form-div ${
+              errors.arrivalCity ? "error-input" : ""
+            }`}
+          >
             <i className="fas fa-map-marked-alt input-icon"></i>
             <select
               className="horizontal-depart-arrival"
@@ -124,42 +177,117 @@ function SearchForm({ setFlights }) {
                 </option>
               ))}
             </select>
-            {errors.arrivalCity && (
-              <span className="error-message">
-                {errors.arrivalCity.message}
-              </span>
-            )}
           </div>
-          <div className="horizontal-flight-input-form-div">
+          <div
+            className={`horizontal-flight-input-form-div ${
+              errors.departDate ? "error-input" : ""
+            }`}
+          >
             <i className="fa fa-calendar input-icon" aria-hidden="true"></i>
             <input
               placeholder="Depart On"
               type="date"
               {...register("departDate")}
             />
-            {errors.departDate && (
-              <span className="error-message">{errors.departDate.message}</span>
-            )}
           </div>
-          <div className="horizontal-flight-input-form-div">
+          <div
+            className={`horizontal-flight-input-form-div ${
+              errors.numberOfTravelers ? "error-input" : ""
+            }`}
+          >
             <i className="fa-solid fa-people-group input-icon"></i>
-            <input
-              type="number"
-              placeholder="Travellers"
-              {...register("numberOfTravelers")}
-            />
-            {errors.numberOfTravelers && (
-              <span className="error-message">
-                {errors.numberOfTravelers.message}
-              </span>
-            )}
+            <button
+              onClick={toggleTravellers}
+              className="toggle-travellers"
+              type="button"
+            >
+              Number of Travellers <ArrowDropDownIcon className={`${showTravellers ? 'rotated-icon' : ''}`} />
+            </button>
           </div>
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <button type="submit" className="horizontal-flight-submit-btn">
+            <button
+              type="submit"
+              className="horizontal-flight-submit-btn"
+              disabled={isSubmitDisabled}
+            >
               Search Flights
             </button>
           </div>
         </div>
+        <AnimatePresence>
+          {showTravellers ? (
+            <motion.div
+              className="travellers"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              key="travellers"
+            >
+              <div className="traveler-type">
+                <label>Adults (+12 years)</label>
+                <div className="counter">
+                  <IconButton
+                    aria-label="decrement"
+                    color="primary"
+                    onClick={() => handleDecrement("adults")}
+                  >
+                    <RemoveIcon />
+                  </IconButton>
+                  <span className="count">{adults}</span>
+                  <IconButton
+                    aria-label="increment"
+                    color="primary"
+                    onClick={() => handleIncrement("adults")}
+                  >
+                    <AddIcon />
+                  </IconButton>
+                </div>
+              </div>
+              <div className="traveler-type">
+                <label>Kids (2-11 years)</label>
+                <div className="counter">
+                  <IconButton
+                    aria-label="decrement"
+                    color="primary"
+                    onClick={() => handleDecrement("kids")}
+                  >
+                    <RemoveIcon />
+                  </IconButton>
+                  <span className="count">{kids}</span>
+                  <IconButton
+                    aria-label="increment"
+                    color="primary"
+                    onClick={() => handleIncrement("kids")}
+                  >
+                    <AddIcon />
+                  </IconButton>
+                </div>
+              </div>
+              <div className="traveler-type">
+                <label>Infants (below 2 years)</label>
+                <div className="counter">
+                  <IconButton
+                    aria-label="decrement"
+                    color="primary"
+                    onClick={() => handleDecrement("infants")}
+                  >
+                    <RemoveIcon />
+                  </IconButton>
+                  <span className="count">{infants}</span>
+                  <IconButton
+                    aria-label="increment"
+                    color="primary"
+                    onClick={() => handleIncrement("infants")}
+                  >
+                    <AddIcon />
+                  </IconButton>
+                </div>
+              </div>
+            </motion.div>
+          ) : (
+            ""
+          )}
+        </AnimatePresence>
       </form>
     </Card>
   );
