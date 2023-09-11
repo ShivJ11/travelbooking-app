@@ -1,7 +1,23 @@
 import { Box, Card, Grid, Typography, Button } from "@mui/material";
-import airIndia from "../../assets/airindia.png";
+import airIndia from "../../assets/airlines/airindia.png";
+import airAsia from "../../assets/airlines/airasia.png";
+import goAir from "../../assets/airlines/goair.png";
+import indigo from "../../assets/airlines/indigo.png";
+import jetAirways from "../../assets/airlines/jetairways.png";
+import spiceJet from "../../assets/airlines/spicejet.png";
+import vistara from "../../assets/airlines/vistara.png";
 import React from "react";
 import { citiesCodeMap } from "../../static/citiesList";
+
+const logoMap = {
+  "Air India": airIndia,
+  "IndiGo": indigo,
+  "SpiceJet": spiceJet,
+  "GoAir": goAir,
+  "Vistara": vistara,
+  "AirAsia": airAsia,
+  "Jet Airways": jetAirways
+}
 
 function SearchResult({data}) {
   return (
@@ -18,22 +34,22 @@ function SearchResult({data}) {
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <img
-              src={airIndia}
+              src={logoMap[data?.flight_name]}
               style={{ width: "50px", display: "inline", marginRight: "10px" }}
               alt=""
             />
             <Typography variant="caption">{data?.flight_name} SG393</Typography>
           </Box>
           <Box>
-            <Typography variant="h6">22:00</Typography>
+            <Typography variant="h6">{data?.departure_time}</Typography>
             <Typography variant="body2">{citiesCodeMap[data?.departure_city]}</Typography>
           </Box>
           <Box>
             <Typography variant="h6">Non Stop</Typography>
-            <Typography variant="body2">2hr 40min</Typography>
+            <Typography variant="body2">{data?.flight_duration}</Typography>
           </Box>
           <Box>
-            <Typography variant="h6">00:10</Typography>
+            <Typography variant="h6">{data?.arrival_time}</Typography>
             <Typography variant="body2">{citiesCodeMap[data?.arrival_city]}</Typography>
           </Box>
         </Grid>

@@ -1,22 +1,22 @@
 .radio {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
 }
 
 .horizontal-flight-input {
-    display: flex;
-    gap: 20px
+  display: flex;
+  gap: 20px;
 }
-.horizontal-flight-input>div {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.horizontal-flight-input > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .main-form-flex {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .horizontal-flight-input-form-div {
@@ -58,6 +58,14 @@
   transform: scale(1.2); /* Scale down slightly when clicked */
 }
 
+/* Add disabled style */
+.horizontal-flight-submit-btn[disabled] {
+  background-color: #ccc; /* Change background color to a disabled color */
+  color: #666; /* Change text color to a disabled color */
+  cursor: not-allowed; /* Change cursor to not-allowed */
+  transform: none; /* Reset transform on disabled state */
+}
+
 .horizontal-flight-input-form input[type="text"],
 .horizontal-flight-input-form input[type="date"],
 .horizontal-flight-input-form input[type="number"] {
@@ -70,4 +78,72 @@
 .horizontal-depart-arrival {
   border: 1px solid #ccc;
   width: 100%;
+}
+
+.error-input {
+  border: 1px solid red;
+  background-color: #ffe0e0;
+}
+
+.error-messages {
+  margin-top: 20px;
+  background-color: #ffcccc;
+  border: 1px solid #ff0000;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.error-messages ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.error-messages li {
+  color: #ff0000;
+  margin-bottom: 5px;
+}
+
+.toggle-travellers {
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.travellers {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.traveler-type {
+  text-align: center;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+}
+
+.increment,
+.decrement {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin: 0 8px;
+  font-size: 16px;
+}
+
+.count {
+  font-size: 18px;
+  margin: 0 8px;
+}
+
+.rotated-icon {
+  transform: rotate(180deg);
 }
