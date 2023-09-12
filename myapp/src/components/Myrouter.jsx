@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import Home from "../pages/Home";
 import Hotels from "../pages/Hotel/Hotels";
-import Packages from "../pages/Packages";
+import Packages from "../pages/Packages/Packages";
 import Cruises from "../pages/Cruises";
 import Flights from "../pages/Flights";
 import HotelDetails from "../pages/Hotel/HotelDetails";
@@ -13,6 +13,7 @@ import FlightSearch from "../pages/FlightSearch";
 import Error from "../pages/Error";
 import Footer from "./footer/Footer";
 import MailList from "./mailList/MailList";
+
 
 const Myrouter = () => {
   return (

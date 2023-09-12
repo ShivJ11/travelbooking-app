@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Header from "../components/searchArea/SearchArea";
 import Featured from "../components/featured/Featured";
 
+
 const Home = () => {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>

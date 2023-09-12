@@ -1,28 +1,31 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Filter from "../../components/filter component/Filter";
-import "./hotel.css";
+import "./packages.css";
 
-const Hotels = () => {
+
+const Packages = () => {
   return (
     <div>
-      <div className="headerImage1 mb-6">
+      <div className="headerImage mb-6">
         <div class="w-full p-4 text-center shadow sm:p-8">
           <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
             Book{" "}
             <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
-              Hotels
+              Packages
             </span>{" "}
             Online
           </h1>
           <p class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
-            Discover your perfect stay. Browse, compare, and reserve hotels
-            effortlessly with our user-friendly booking platform.
+            Explore the world effortlessly with our thoughtfully crafted travel
+            packages, perfect for beach relaxation, thrilling adventures, or
+            cultural exploration. Let us handle the details, so you can cherish
+            unforgettable moments.
           </p>
         </div>
       </div>
 
-      <div className="p-6" style={{ marginBottom: '200px' }}>
+      <div className="p-6" style={{ marginBottom: "200px" }}>
         <div className="float-left w-1/5">
           <Filter></Filter>
         </div>
@@ -344,4 +347,4 @@ const Hotels = () => {
   );
 };
 
-export default Hotels;
+export default Packages;
