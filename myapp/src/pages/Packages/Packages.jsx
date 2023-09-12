@@ -6,7 +6,7 @@ import "./packages.css";
 
 const Packages = () => {
   return (
-    <div>
+    <div className="example-style">
       <div className="headerImage mb-6">
         <div class="w-full p-4 text-center shadow sm:p-8">
           <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">

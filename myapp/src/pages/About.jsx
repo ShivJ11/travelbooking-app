@@ -9,7 +9,7 @@ import p7 from "../assets/p7.png";
 
 const About = () => {
   return (
-    <div>
+    <div className="example-style">
       <section>
         <div class="container px-5 mx-auto">
           <div class="text-center mb-20">
