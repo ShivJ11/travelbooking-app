@@ -12,7 +12,8 @@ const Filter = () => {
     const [date, setDate] = useState(location?.state?.date);
     const [openDate, setOpenDate] = useState(false);
     const [options, setOptions] = useState(location?.state?.options);
-
+    const startDate = new Date(0);
+    
   return (
     <div>
       <div className="listContainer">
@@ -37,6 +38,20 @@ const Filter = () => {
                 />
               )}
             </div> */}
+            <div className="lsItem">
+              <label>Check-in Date</label>
+              <span onClick={() => setOpenDate(!openDate)}>{`${format(
+                date? date[0].startDate:startDate,
+                "MM/dd/yyyy"
+              )} to ${format(date? date[0].endDate:startDate, "MM/dd/yyyy")}`}</span>
+              {openDate && (
+                <DateRange
+                  onChange={(item) => setDate([item?.selection])}
+                  minDate={new Date()}
+                  ranges={date} 
+                />
+              )}
+            </div>
             <div className="lsItem">
               <label>Options</label>
               <div className="lsOptions">

@@ -42,32 +42,32 @@ const MailList = () => {
     {
       question: 'How do I find the best deals and discounts?',
       answer:
-        'It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available.',
+        'To find the best deals and discounts, sign up for our newsletter to receive exclusive offers. You can also follow us on social media and regularly check our website for special promotions and last-minute deals.',
     },
     {
       question: 'Do you offer travel insurance?',
       answer:
-        'It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available.',
+        'Yes, we offer travel insurance options during the booking process. We recommend considering travel insurance to protect your trip in case of unexpected events or cancellations.',
     },
     {
       question: 'What payment methods do you accept?',
       answer:
-        'It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available.',
+        'We accept various payment methods, including credit cards, debit cards, and popular digital wallets like PayPal. Payment options may vary depending on the hotel and location.',
     },
     {
       question: 'Are there any hidden fees or taxes on bookings?',
       answer:
-        'It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available.',
+        'We strive for transparency. The price you see during the booking process includes taxes and fees. However, in some regions, there may be additional local taxes or resort fees, which will be clearly mentioned before you confirm your booking.',
     },
     {
       question: 'How can I contact customer support?',
       answer:
-        'It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available.',
+        'Our customer support team is available 24/7. You can reach us via phone at [Phone Number] or by email at [Email Address]. We are here to assist you with any questions or issues you may have.',
     },
     {
       question: 'Can I cancel my hotel reservation?',
       answer:
-        'It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available.',
+        'Yes, you can. Most of our hotel bookings offer free cancellation up to a certain date before check-in. Just go to your booking details and follow the cancellation process. Be sure to check the hotel cancellation policy for specifics.',
     },
   ];
 

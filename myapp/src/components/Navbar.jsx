@@ -115,7 +115,7 @@ const Navbar = () => {
                   Home
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   to="/packages"
                   style={{fontWeight: "700"}}
@@ -123,7 +123,7 @@ const Navbar = () => {
                 >
                   Packages
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink
                   to="/hotels"
