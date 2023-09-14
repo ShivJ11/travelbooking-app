@@ -12,6 +12,7 @@ const Filter = () => {
     const [date, setDate] = useState(location?.state?.date);
     const [openDate, setOpenDate] = useState(false);
     const [options, setOptions] = useState(location?.state?.options);
+    const startDate = new Date(null);
 
   return (
     <div>
@@ -23,20 +24,20 @@ const Filter = () => {
               <label>Destination</label>
               <input placeholder={destination} type="text" />
             </div>
-            {/* <div className="lsItem">
+            <div className="lsItem">
               <label>Check-in Date</label>
               <span onClick={() => setOpenDate(!openDate)}>{`${format(
-                date[0]?.startDate,
+                date? date[0].startDate:startDate,
                 "MM/dd/yyyy"
-              )} to ${format(date[0]?.endDate, "MM/dd/yyyy")}`}</span>
+              )} to ${format(date? date[0].endDate:startDate, "MM/dd/yyyy")}`}</span>
               {openDate && (
                 <DateRange
                   onChange={(item) => setDate([item?.selection])}
                   minDate={new Date()}
-                  ranges={date}
+                  ranges={date} 
                 />
               )}
-            </div> */}
+            </div>
             <div className="lsItem">
               <label>Options</label>
               <div className="lsOptions">

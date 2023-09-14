@@ -1,4 +1,4 @@
-export const citiesList = [
+  export const citiesList = [
     { name: "Mumbai", code: "MUM" },
     { name: "Delhi", code: "DEL" },
     { name: "Bangalore", code: "BLR" },

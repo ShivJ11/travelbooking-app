@@ -54,6 +54,9 @@
 .flight-input-form > div > input {
   width: 80%;
 }
+.flight-input-form > div > select {
+  width: 80%;
+}
 .flight-accordian {
   height: 35%;
   width: 20%;
