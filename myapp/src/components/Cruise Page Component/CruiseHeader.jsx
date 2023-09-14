@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Flight Page Component/Header.css";
-import "./CruiseHeader.css"
+import "./CruiseHeader.css";
 import CruiseBookingForm from "./CruiseBookingForm";
 const CruiseHeader = () => {
+  const [Cruise, setCruise] = useState([]);
   return (
     <>
       <div className="flight-header-container cruise-header-container">
@@ -18,8 +19,32 @@ const CruiseHeader = () => {
           </p>
         </div>
         <div className="flight-form-container">
-          <CruiseBookingForm></CruiseBookingForm>
+          <CruiseBookingForm setCruise={setCruise}></CruiseBookingForm>
         </div>
+      </div>
+      <div className="cruise-data-container">
+        {Cruise.map((arr, index) => {
+          return (
+            <div class="card" style={{width: "18rem"}} key={index}>
+              <img src={arr.cruiseImageUrl} class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h4 class="card-title fw-bold h5">{arr.cruiseName}</h4>
+                <p class="card-text">
+                Departure City : {arr.departureCity}
+                </p>
+                <p class="card-text">
+                Destination City : {arr.destinationCity}
+                </p>
+                <p class="card-text">
+                  Suite Price : {arr.suitePrice}
+                </p>  
+                <a href="#" class="btn btn-primary mt-3">
+                  Book
+                </a>
+              </div>
+            </div>
+          );
+        })}
       </div>
       <div className="top-destination-conatainer">
         <div className="top-dest-section">

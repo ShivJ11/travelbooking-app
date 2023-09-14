@@ -333,14 +333,14 @@ const FlightBookingForm = ({flightData, setFlightsData}) => {
             <div>
               {" "}
               <i class="fas fa-map-marked-alt"></i>{" "}
-              <select name="arrivalCity" value={arrivalCity} onChange={onChangeHandler}>
-                <option value="" disabled selected>Arrival</option>
-                {citiesList.map((city, index) => (
-                <option key={index} value={city.name}>
-                  {`${city.name} (${city.code})`}
-                </option>
-              ))}
-              </select>
+                <select name="arrivalCity" value={arrivalCity} onChange={onChangeHandler}>
+                  <option value="" disabled selected>Arrival</option>
+                  {citiesList.map((city, index) => (
+                  <option key={index} value={city.name}>
+                    {`${city.name} (${city.code})`}
+                  </option>
+                ))}
+                </select>
             </div>
             <div>
               {" "}
@@ -504,8 +504,8 @@ const FlightBookingForm = ({flightData, setFlightsData}) => {
                 </div>
               </form>
             )}
-
-            <button>
+           <div style={{ color: "red" }}>{error}</div>
+            <button button type="submit">
               <span>Find Flights</span>
               <svg
                 viewBox="-5 -5 110 110"
