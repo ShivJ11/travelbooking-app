@@ -11,6 +11,7 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -28,6 +29,8 @@ const Header = ({ type }) => {
     children: 0,
     room: 1,
   });
+
+  const { user, logout, isShowLogin, isShowRegister, toggleLogin, toggleRegister } = useAuth();
 
   const navigate = useNavigate();
 
@@ -61,9 +64,19 @@ const Header = ({ type }) => {
               Get rewarded for your travels – unlock instant savings of 10% or
               more with a free Thomas Cook
             </p>
-            <button class="text-black bg-white hover:bg-green-500 transition duration-300 ease-in-out hover:text-white font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0">
+            {user ? (
+              <>
+              <button class="text-white bg-green-500 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0">
+              Use Code "Thomas10" at checkout
+            </button>
+              </>
+            ) : (
+              <>
+                <button class="text-black bg-white hover:bg-green-500 transition duration-300 ease-in-out hover:text-white font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0">
               Sign in / Register
             </button>
+              </>
+            )}
             <div className="headerSearch text-black">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />

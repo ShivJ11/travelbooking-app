@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import axios from 'axios';
+import { useState } from "react";
 
 const Featured = () => {
+
+  const apiUrl = 'http://localhost:5147/api/PublicData/specificFlightDetails?flightId=1';
+  const [flightData, setFlightData] = useState("");
+  
+  useEffect(() => {
+    axios.get(apiUrl)
+  .then(function (response) {
+    const data = response.data;
+    setFlightData(data);
+    console.log('Data:', data);
+    console.log('stored', flightData.flightid);
+  })
+  .catch(function (error) {
+    console.error('Error:', error);
+  });
+  },[])
+
   return (
     <div className="mt-16 px-8">
 
@@ -263,7 +282,7 @@ const Featured = () => {
               <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                 Browse Top{" "}
                 <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
-                  Cruises
+                  Flights
                 </span>
               </h1>
             </div>
@@ -274,14 +293,16 @@ const Featured = () => {
           <NavLink to="./details">
             <img
               class="p-8 rounded-t-lg"
-              src="https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80"
+              src={flightData.flight_image_url}
               alt="product image"
             />
           </NavLink>
           <div class="px-5 pb-5">
             <NavLink to="./details">
               <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
+                {flightData.flight_name}
+                <br></br>
+                {flightData.departure_city} to {flightData.arrival_city} ({flightData.booking_type})
               </h5>
             </NavLink>
             <div class="flex items-center mt-2.5 mb-5">
@@ -336,13 +357,13 @@ const Featured = () => {
             </div>
             <div class="flex items-center justify-between">
               <span class="text-3xl font-bold text-gray-900 dark:text-white">
-                $599
+              ₹{flightData.cost}
               </span>
               <a
                 href="#"
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
-                Book Now
+                More Details
               </a>
             </div>
           </div>
@@ -513,7 +534,7 @@ const Featured = () => {
               <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                 Browse Top{" "}
                 <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
-                  Packages
+                  Cruises
                 </span>
               </h1>
             </div>
